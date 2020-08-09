@@ -349,8 +349,7 @@ class System:
             self.random_classes_lessons = self.random_class.lessons # rastege seçilmiş sınıf objesinin dersleri (DİCTİONARY)
 
             self.rand_list_les = [self.random_classes_lessons[a] for a in self.random_classes_lessons if self.random_classes_lessons[a].lesson_teacher != None \
-                                                    and self.random_classes_lessons[a] not in self.random_class.completed_week_plan and \
-                                                        self.random_classes_lessons[a]] # rastele DERSLER listesi
+                                                    and self.random_classes_lessons[a] not in self.random_class.completed_week_plan] # rastele DERSLER listesi
             if len(self.rand_list_les) == 0:
                 return True
             
