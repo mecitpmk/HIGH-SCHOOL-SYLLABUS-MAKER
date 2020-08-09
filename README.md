@@ -4,7 +4,7 @@ This Software builted for making syllabus automatically for HIGH SCHOOLS.
 
 
 ## How It Works
-If the user click "Make Syllabus!" button , program will randomly choose a ClassRooms and check-compare if the other ClassRooms have at the same time choosed lessons, program will randomly choose again a lesson and try it when it completed.
+If the user click "Make Syllabus!" button , program will randomly choose a ClassRooms and check-compare if the other ClassRooms have at the same time choosed lessons, program will randomly choose again a lesson and try it when it is not crashing with lessons and completed.
 
 ## How It Looks Like
 When the program run first time program will looks like like this:
