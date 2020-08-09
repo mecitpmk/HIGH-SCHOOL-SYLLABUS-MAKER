@@ -222,7 +222,6 @@ class GUI(Frame):
         
     def create_Teach(self):
         if self.teacher_brunch_Ent.get() != "" and self.teacher_Name_Ent.get() != "" and self.teacher_max_loads != "":
-            # if teacher-name in Teacher.all_teacher.... diyebilirsin..
             if self.teacher_Name_Ent.get() not in Teacher.all_dict:
                 self.teacherListbox.insert(END,Teacher(teacher_name=self.teacher_Name_Ent.get(),
                                                             brunch=self.teacher_brunch_Ent.get(),
@@ -298,14 +297,12 @@ class Teacher:
         self.brunch=brunch
         self.max_workloads = max_workloads
         self.taking_classrooms = []
-        # self.current_loads=0
         Teacher.all_dict[self.teacher_name] = self
         Teacher.all_list.append(self)
     def teacher_taking(self,given_lessons):
         if given_lessons in self.taking_classrooms:
             return True
         else:
-            # if self.current_loads < self.max_workloads or given_lessons.lessons[self.brunch].lesson_hour <= self.current_loads:
             if self.current_loads < self.max_workloads and (given_lessons.lessons[self.brunch].lesson_hour+self.current_loads) <= self.max_workloads:
                 return False
             elif self.current_loads >= self.max_workloads:
@@ -317,23 +314,9 @@ class Teacher:
 
 class System:
     def run(self):
-        # teacher_first = Teacher('Mecit Pamuk','Mathematics',12)
-
-        # teacher_second = Teacher('Hamit Pamuk','Physics',max_workloads = 12)
-        # # teacher_third = Teacher('Seyfi Pamuk','Mathematics')
-
-        # TESTEST = Teacher("Mahmut Tuncer","Chemistry",max_workloads = 4)
-        # # TESTEST2 = Teacher("Mahmut Tuncer2","Chemistry")
-
-        # first_classx = ClassRoom('12-A')
-        # second_classx = ClassRoom('12-B')
-        # asdf = ClassRoom("12-C")
-
-        
         self.available_brunch = set()
         for t in Teacher.all_list:
             self.available_brunch.add(t.brunch)
-        # print(self.available_brunch)
         self.recursive_funct()
         for obj in ClassRoom.all_list:
             for b in obj.lessons:
@@ -342,14 +325,8 @@ class System:
         self.not_did = ClassRoom.all_list.copy()
         print(self.not_did)
 
-        # for a in ClassRoom.all_list:
-        #     for b in a.days:
-        #         b.clocks[11]=True
     
         self.recursive_funct2()
-        # print(Teacher.all_list[0].current_loads,Teacher.all_list[0].taking_classrooms)
-        # { MATH FIZIK KIMYA} , # { MATH FIZIK KIMYA} , { MATH FIZIK KIMYA}
-        #               {MATH FIZIK}
 
         for day_obj in ClassRoom.all_list:
             dayx_obj = day_obj.days
@@ -411,19 +388,7 @@ class System:
                                             test_list.append_args(d.clocks[self.random_clock].lesson_teacher == self.random_choice_lesson.lesson_teacher)
                                         if d.clocks[self.random_clock+1] != None:
                                             test_list.append_args(d.clocks[self.random_clock+1].lesson_teacher == self.random_choice_lesson.lesson_teacher)
-                                # if d.clocks[self.random_clock] != None:
-                                #     test_list.append_args(d.clocks[self.random_clock].lesson_teacher == self.random_choice_lesson.lesson_teacher,d.clocks[self.random_clock+1].lesson_teacher == self.random_choice_lesson.lesson_teacher)
-                                # elif d.clocks[self.random_clock+1] != None:
-                                #     test_list.append_args(d.clocks[self.random_clock+1].lesson_teacher == self.random_choice_lesson.lesson_teacher)
-                                # else:
-                                #     if self.random_clock != 16:
-                                #         if d.clocks[self.random_clock+1] == None:
-                                #             test_list.append_args(False,False)
-                                #         else:
-                                #             test_list.append_args(False,d.clocks[self.random_clock+1] == self.random_choice_lesson.lesson_teacher)
-                                #     else:
-                                #         test_list.append_args(d.clocks[self.random_clock] == self.random_choice_lesson.lesson_teacher,d.clocks[self.random_clock-1] == self.random_choice_lesson.lesson_teacher)
-                # print(test_list)
+                               
                 counter = 0
                 other_counter = 0
                 for test in self.random_day_obj.clocks.values():
@@ -437,12 +402,11 @@ class System:
                             if obj == self.random_choice_lesson:
                                 counter+=1
                 
-                # print(counter)
                 if other_counter == 2:
-                    print("Aynı Gun 2 den Fazla dERS OLAMAZ!")
+                    # print("Aynı Gun 2 den Fazla dERS OLAMAZ!")
                     self.recursive_funct2(self.random_class)
                 elif counter == self.random_choice_lesson.lesson_hour:
-                    print("Credit Limit")
+                    # print("Credit Limit")
                     self.random_class.completed_week_plan.append(self.random_choice_lesson)
                     if self.check_completed(self.random_class):
                         self.recursive_funct2()
@@ -450,12 +414,11 @@ class System:
                         return self.recursive_funct2(self.random_class)
                 elif any(test_list):
                     print(test_list)
-                    print("Same Course in Same Clocks IDENTIFIED!!")
+                    # print("Same Course in Same Clocks IDENTIFIED!!")
                     if self.check_completed(self.random_class):
                         self.recursive_funct2()
                     else:
                         return self.recursive_funct2(self.random_class)
-                    # self.recursive_funct2(self.random_class)
                 else:
                     if self.random_clock == 9 and self.random_day_obj.clocks[self.random_clock] == None and self.random_day_obj.clocks[self.random_clock+1] == None:
                         self.random_day_obj.clocks[self.random_clock] = self.random_choice_lesson
@@ -489,7 +452,6 @@ class System:
         lenght=0
         completed=0
         for lesson,lessons in given_class.lessons.items():
-            # print(lessons.lesson_teacher)
             if lessons.lesson_teacher != None:
                 lenght+=1
             if lessons in lesson_dicts:
@@ -510,7 +472,6 @@ class System:
                     if les.lessons[available_b].lesson_teacher != None:
                         ct+=1
             if len(ClassRoom.all_list) * len(self.available_brunch) == ct:
-                # print(ct)
                 return True
             
             teacher_first = random.choice(Teacher.all_list)
@@ -529,14 +490,16 @@ class System:
                     self.recursive_funct()
                 else:
                     self.recursive_funct()
-                    # completed = True
         except :
             return False        
             
 
+def main():
 
+    root = Tk()
+    create_gui  = GUI(root)
+    root.title("Syllabus Program")
+    root.mainloop()
 
-root = Tk()
-create_gui  = GUI(root)
-root.title("Syllabus Program")
-root.mainloop()
+if __name__ == "__main__":
+    main()
