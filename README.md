@@ -29,6 +29,7 @@ Also if the user click "See ClassRoom's SYLLABUS" button ClassRoom's SYLLABUS wi
 ## Double Clicking to Teachers
 If the user double-click to Created Teachers, user can acces teachers taking classrooms. Therefore, user can double-click to classrooms and access classrooms syllabus.
 Besides that, user can see teachers name , teachers brunch, teachers maximum work hour and loaded work hour.
+
 ![fifth](https://user-images.githubusercontent.com/63451008/89741192-eb405480-da97-11ea-8615-b9d7b6e2e695.PNG)
 
 If user want to change that just must click to "Change Max Workloads" button. After that in main screen teachers color turned into yellow.
