@@ -33,6 +33,7 @@ Besides that, user can see teachers name , teachers brunch, teachers maximum wor
 ![fifth](https://user-images.githubusercontent.com/63451008/89741192-eb405480-da97-11ea-8615-b9d7b6e2e695.PNG)
 
 If user want to change that just must click to "Change Max Workloads" button. After that in main screen teachers color turned into yellow.
+
 ![asdf](https://user-images.githubusercontent.com/63451008/89741164-b0d6b780-da97-11ea-8df7-f3a10ca6a37f.PNG)
 
 
