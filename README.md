@@ -36,6 +36,10 @@ If user want to change that just must click to "Change Max Workloads" button. Af
 
 ![asdf](https://user-images.githubusercontent.com/63451008/89741164-b0d6b780-da97-11ea-8df7-f3a10ca6a37f.PNG)
 
+## Colours Meaning
+RED - Teachers current overloads is full ,  ClassRooms taken lessons is full.
+GREEN - Teachers current overloads is almost 0 , ClassRooms taken lessons is almost empty
+YELLOW - Teachers current overloads close to max overloads,  Classroms taken lessons is very close to be full.
 
 ## License
 For Everyone
